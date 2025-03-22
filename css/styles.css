@@ -90,15 +90,33 @@ ul .link:hover, .link:focus {
 .address-link {
     color: #434455;
 }
+.menu-link {
+    position: relative;
+}
+.menu-link::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #404bbf;
+    content: "";
+    transition: width;
+}
+.menu-link:hover::after, .menu-link:focus::after {
+    width: 100%;
+}
 
 /* -----------------------------Hero---------------------- */
 
 .hero {
+    max-width: 1440px;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url("/images/people-office-min.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #2e2f42;
     padding: 188px 0;
+    margin: 0 auto;
 }
 
 .page-title {
@@ -178,6 +196,17 @@ ul .link:hover, .link:focus {
     display: flex;
     gap: 24px;
 }
+.feature-icon-wrap {
+    background-color: #f4f4fd;
+    border: 1px solid #8e8f99;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;  
+}
+.feature-icon {
+    margin: 24px 0;
+}
 
 /* ----------------------------Team-------------------------- */
 
@@ -201,7 +230,7 @@ ul .link:hover, .link:focus {
     gap: 24px;
 }
 .card-desc {
-    padding: 32px 0;
+    padding: 32px 16px;
     text-align: center;
 }
 .card {
@@ -219,8 +248,27 @@ ul .link:hover, .link:focus {
     display: flex;
     justify-content: center;
 }
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: #f4f4fd;
+    background-color: transparent;
+}
+.icon-wrap {
+    position: relative;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+}
+.icon-wrap:hover, .icon-wrap:focus {
+    background-color: #31d0aa;
+}
 
-/* -------------------------------Portgolio------------------ */
+/* -------------------------------Portfolio------------------ */
 
 
 .app-list {
@@ -231,6 +279,33 @@ ul .link:hover, .link:focus {
 }
 .app {
     width: calc((100% - 48px) / 3);
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.overlay-box {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+.overlay {
+    padding: 40px 32px 0;
+    position: absolute;
+    top: 0;
+    left: 0;    
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform 250ms linear;
+}
+.app:hover .overlay {
+    background-color: #4d5ae5;
+    color: #f4f4fd;
+    transform: translateY(0);
+}
+.app:hover, .app:focus {
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+    cursor: pointer;
 }
 .app-desc {
     padding: 32px 16px;
@@ -291,4 +366,7 @@ ul .link:hover, .link:focus {
 }
 .footer-social {
     gap: 16px;
+}
+.social-links-title {
+    margin-bottom: 16px;
 }
