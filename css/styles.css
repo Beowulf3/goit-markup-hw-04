@@ -53,11 +53,18 @@ section {
 }
 
 ul .link:hover, .link:focus {
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     color: #404bbf;
 }
 
 .page-header {
     border-bottom: 1px solid #E7E9FC;
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 1px 6px rgba(46, 47, 66, 0.08);
+}
+.active-page {
+    color: #404bbf;
 }
 .page-nav, .nav-list {
     display: flex;
@@ -90,22 +97,22 @@ ul .link:hover, .link:focus {
 .address-link {
     color: #434455;
 }
-.menu-link {
+.active-page {
     position: relative;
 }
-.menu-link::after {
+.active-page::after {
+    width: 100%;
     display: block;
     position: absolute;
     left: 0;
-    width: 0;
-    height: 2px;
+    bottom: -1px;
+    height: 4px;
+    border-radius: 2px;
     background-color: #404bbf;
     content: "";
-    transition: width;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.menu-link:hover::after, .menu-link:focus::after {
-    width: 100%;
-}
+
 
 /* -----------------------------Hero---------------------- */
 
@@ -113,6 +120,7 @@ ul .link:hover, .link:focus {
     max-width: 1440px;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url("../images/people-office-min.jpg");
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     background-color: #2e2f42;
     padding: 188px 0;
@@ -149,6 +157,7 @@ ul .link:hover, .link:focus {
     margin-right: auto;
 }
 .order-btn:hover, .order-btn:focus {
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     background-color: #404bbf;
 }
 
@@ -202,7 +211,9 @@ ul .link:hover, .link:focus {
     border-radius: 4px;
     margin-bottom: 8px;
     display: flex;
-    justify-content: center;  
+    align-items: center;
+    justify-content: center;
+    height: 112px;
 }
 .feature-icon {
     margin: 24px 0;
@@ -230,7 +241,7 @@ ul .link:hover, .link:focus {
     gap: 24px;
 }
 .card-desc {
-    padding: 32px 16px;
+    padding: 32px 0;
     text-align: center;
 }
 .card {
@@ -244,28 +255,36 @@ ul .link:hover, .link:focus {
     text-align: center;
     margin-bottom: 8px;
 }
-.card-links {
+.links-list {
     display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+.icon-link {
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
     fill: #f4f4fd;
     background-color: transparent;
 }
 .icon-wrap {
-    position: relative;
     background-color: #4d5ae5;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     display: flex;
 }
-.icon-wrap:hover, .icon-wrap:focus {
-    background-color: #31d0aa;
+.icon-link:hover, .icon-link:focus {
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #404bbf;
 }
 
 /* -------------------------------Portfolio------------------ */
@@ -289,18 +308,19 @@ ul .link:hover, .link:focus {
     height: 300px;
 }
 .overlay {
-    padding: 40px 32px 0;
+    padding: 40px 32px;
     position: absolute;
     top: 0;
-    left: 0;    
+    color: #f4f4fd;
+    background-color: #4d5ae5;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
     width: 100%;
     height: 100%;
     transform: translateY(100%);
-    transition: transform 250ms linear;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .app:hover .overlay {
-    background-color: #4d5ae5;
-    color: #f4f4fd;
     transform: translateY(0);
 }
 .app:hover, .app:focus {
@@ -345,11 +365,12 @@ ul .link:hover, .link:focus {
 }
 .footer-container {
     display: flex;
+    align-items: baseline;
 }
 .logo-part {
     margin-right: 120px;
 }
-.footer-container a {
+.footer-link {
     display: inline-block;
     margin-bottom: 16px;
     margin-right: 0;
@@ -368,5 +389,13 @@ ul .link:hover, .link:focus {
     gap: 16px;
 }
 .social-links-title {
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
     margin-bottom: 16px;
+    color: #fff;
+}
+.footer-icon:hover, .footer-icon:focus {
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #31d0aa;
 }
