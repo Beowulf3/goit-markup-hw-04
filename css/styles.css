@@ -284,7 +284,6 @@ ul .link:hover, .link:focus {
 }
 .icon-link:hover, .icon-link:focus {
     background-color: #404bbf;
-    color: #404bbf;
 }
  
 
@@ -402,5 +401,5 @@ ul .link:hover, .link:focus {
 
 .footer-icon:hover, .footer-icon:focus {
     background-color: #31d0aa;
-    color: #31d0aa;
 }
+
